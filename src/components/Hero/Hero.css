@@ -1,0 +1,604 @@
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  min-height: 90vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(14, 165, 233, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(20, 184, 166, 0.14),
+      transparent 35%
+    ),
+    #07111f;
+
+  padding: 80px 20px;
+}
+
+
+/* =========================
+   GRID BACKGROUND
+========================= */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(148, 163, 184, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 50px 50px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  background: rgba(14, 165, 233, 0.13);
+
+  filter: blur(80px);
+
+  top: -100px;
+  right: -80px;
+
+  animation: glow 5s ease-in-out infinite alternate;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   HERO CONTAINER
+========================= */
+
+.hero-container {
+  max-width: 1200px;
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+
+  align-items: center;
+
+  gap: 50px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.hero-content {
+  max-width: 1000px;
+  width: 100%;
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================
+   GREETING
+========================= */
+
+.hero-greeting {
+  color: #38bdf8 !important;
+
+  font-size: 14px !important;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 15px !important;
+}
+
+
+/* =========================
+   MAIN HEADING
+========================= */
+
+.hero-content h1 {
+  font-size: clamp(38px, 5vw, 58px);
+
+  margin-bottom: 20px;
+
+  color: #f8fafc;
+
+  line-height: 1.2;
+}
+
+
+/* =========================
+   NAME EFFECT
+========================= */
+
+.hero-content h1 span {
+  background: linear-gradient(
+    90deg,
+    #f8fafc,
+    #67e8f9,
+    #72a3b8
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+
+  text-shadow:
+    0 0 25px rgba(56, 189, 248, 0.15);
+}
+
+
+/* =========================
+   DEVELOPER
+========================= */
+
+.hero-content h2 {
+  color: #2dd4bf;
+
+  font-size: clamp(22px, 3vw, 30px);
+
+  margin-bottom: 25px;
+
+  text-shadow:
+    0 0 20px rgba(45, 212, 191, 0.25);
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.hero-description {
+  max-width: 750px;
+
+  margin: auto;
+
+  line-height: 1.8;
+
+  font-size: clamp(15px, 1.5vw, 19px);
+
+  color: #cbd5e1;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-btn {
+  margin-top: 35px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+
+.hero-btn button,
+.resume-btn,
+.contact-btn {
+  padding: 14px 30px;
+
+  border-radius: 8px;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+/* =========================
+   RESUME BUTTON
+========================= */
+
+.resume-btn {
+  background: linear-gradient(
+    135deg,
+    #0891b2,
+    #0d9488
+  );
+
+  color: white;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 0 20px rgba(14, 165, 233, 0.25);
+}
+
+
+.resume-btn:hover {
+  transform: translateY(-4px);
+
+  background: linear-gradient(
+    135deg,
+    #06b6d4,
+    #14b8a6
+  );
+
+  box-shadow:
+    0 0 30px rgba(45, 212, 191, 0.4);
+}
+
+
+/* =========================
+   CONTACT BUTTON
+========================= */
+
+.contact-btn {
+  padding: 14px 30px;
+
+  border-radius: 8px;
+
+  font-size: 17px;
+
+  text-decoration: none;
+
+  color: white;
+
+  border: 1px solid #475569;
+
+  transition: 0.3s;
+}
+
+
+.contact-btn:hover {
+  background: rgba(45, 212, 191, 0.08);
+
+  border-color: #2dd4bf;
+
+  transform: translateY(-4px);
+}
+
+
+/* =========================
+   IMAGE CONTAINER
+========================= */
+
+.hero-image-container {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  position: relative;
+
+  min-width: 0;
+}
+
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image {
+  width: clamp(200px, 28vw, 360px);
+
+  height: clamp(200px, 28vw, 360px);
+
+  aspect-ratio: 1 / 1;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  display: block;
+
+  border-radius: 50%;
+
+  position: relative;
+
+  z-index: 2;
+
+  border: 3px solid rgba(56, 189, 248, 0.55);
+
+  box-shadow:
+    0 0 30px rgba(14, 165, 233, 0.35),
+    0 0 80px rgba(20, 184, 166, 0.18);
+
+  transition: transform 0.4s ease;
+}
+
+
+.hero-image:hover {
+  transform: scale(1.04);
+}
+
+
+/* =========================
+   IMAGE GLOW
+========================= */
+
+.image-glow {
+  position: absolute;
+
+  width: clamp(180px, 23vw, 300px);
+
+  height: clamp(180px, 23vw, 300px);
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #06b6d4,
+    #14b8a6
+  );
+
+  filter: blur(60px);
+
+  opacity: 0.3;
+
+  animation: imageGlow 4s ease-in-out infinite alternate;
+
+  z-index: 1;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes glow {
+
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-80px, 80px);
+  }
+
+}
+
+
+@keyframes imageGlow {
+
+  from {
+    transform: scale(0.9);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    min-height: auto;
+
+    padding: 100px 25px 70px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+
+    max-width: 700px;
+  }
+
+  .hero-image-container {
+    order: -1;
+  }
+
+  .hero-image {
+    width: 260px;
+    height: 260px;
+  }
+
+  .image-glow {
+    width: 220px;
+    height: 220px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: 100vh;
+
+    padding: 90px 18px 60px;
+  }
+
+  .hero-container {
+    gap: 30px;
+  }
+
+  .hero-greeting {
+    font-size: 11px !important;
+
+    letter-spacing: 2px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+
+    line-height: 1.25;
+  }
+
+  .hero-content h2 {
+    font-size: 22px;
+
+    margin-bottom: 18px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .hero-btn {
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 28px;
+  }
+
+  .resume-btn,
+  .contact-btn {
+    width: min(100%, 240px);
+
+    text-align: center;
+
+    font-size: 15px;
+  }
+
+  .hero-image {
+    width: 190px;
+    height: 190px;
+  }
+
+  .image-glow {
+    width: 170px;
+    height: 170px;
+
+    filter: blur(50px);
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+  .hero {
+    padding: 80px 14px 50px;
+  }
+
+  .hero-container {
+    gap: 25px;
+  }
+
+  .hero-content h1 {
+    font-size: 30px;
+  }
+
+  .hero-content h2 {
+    font-size: 20px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-image {
+    width: 160px;
+    height: 160px;
+  }
+
+  .image-glow {
+    width: 140px;
+    height: 140px;
+  }
+
+  .resume-btn,
+  .contact-btn {
+    width: 210px;
+
+    padding: 12px 20px;
+  }
+
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 350px) {
+
+  .hero-content h1 {
+    font-size: 27px;
+  }
+
+  .hero-content h2 {
+    font-size: 18px;
+  }
+
+  .hero-image {
+    width: 145px;
+    height: 145px;
+  }
+
+}

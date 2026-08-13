@@ -1,0 +1,286 @@
+/* =========================
+   SKILLS SECTION
+========================= */
+
+.skills {
+    padding: 110px 20px;
+
+    background: #0b1120;
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.skills::before {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.12);
+
+    filter: blur(110px);
+
+    right: -200px;
+    top: 100px;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.skills-heading {
+    text-align: center;
+
+    margin-bottom: 60px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.skills-heading p {
+    color: #60a5fa;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.skills-heading h2 {
+    font-size: 42px;
+
+    margin: 0 0 18px;
+
+    color: #f8fafc;
+}
+
+.skills-heading span {
+    display: block;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #94a3b8;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   SKILLS CONTAINER
+========================= */
+
+.skills-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   SKILL CARD
+========================= */
+
+.skill-card {
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 14px;
+
+    /* Scroll Animation */
+    opacity: 0;
+
+    transform: translateY(60px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =========================
+   CARD SHOW
+========================= */
+
+.skill-card.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================
+   CARD HOVER
+========================= */
+
+.skill-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(96, 165, 250, 0.5);
+
+    box-shadow:
+        0 15px 35px rgba(37, 99, 235, 0.18);
+}
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+.skill-card h3 {
+    color: #f8fafc;
+
+    font-size: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   TECHNOLOGIES
+========================= */
+
+.skill-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+/* =========================
+   TECHNOLOGY TAG
+========================= */
+
+.skill-list span {
+    padding: 8px 14px;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    color: #93c5fd;
+
+    background: rgba(37, 99, 235, 0.12);
+
+    border: 1px solid rgba(96, 165, 250, 0.18);
+
+    transition: 0.3s;
+}
+
+
+/* =========================
+   TECHNOLOGY HOVER
+========================= */
+
+.skill-list span:hover {
+    color: white;
+
+    background: rgba(37, 99, 235, 0.25);
+
+    border-color: #60a5fa;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 950px) {
+
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .skills {
+        padding: 80px 20px;
+    }
+
+    .skills-heading h2 {
+        font-size: 32px;
+    }
+
+    .skills-heading span {
+        font-size: 15px;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card {
+        padding: 25px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .skills-heading h2 {
+        font-size: 28px;
+    }
+
+    .skill-card h3 {
+        font-size: 20px;
+    }
+
+    .skill-list span {
+        font-size: 13px;
+
+        padding: 7px 11px;
+    }
+
+}
