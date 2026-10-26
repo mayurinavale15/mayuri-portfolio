@@ -26,8 +26,5 @@ dist-ssr
 *.sln
 *.sw?
 
-# Hero image
-src/assets/hero.png
-
 # Resume
 public/Mayuri_Resume.pdf
