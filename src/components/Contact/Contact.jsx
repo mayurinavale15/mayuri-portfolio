@@ -1,3 +1,5 @@
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
 import {
@@ -7,32 +9,50 @@ import {
 } from "react-icons/fa";
 
 function Contact() {
+  const form = useRef();
+  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    setStatus("");
+
+    try {
+      await emailjs.sendForm(
+        "service_top8v7z",
+        "template_v4zzlzk",
+        form.current,
+        {
+          publicKey: "spAa61frUY8BPp9CE",
+        }
+      );
+
+      setStatus("Message sent successfully!");
+      form.current.reset();
+    }  catch (error) {
+  console.error("EmailJS error:", error);
+  alert(error.text || error.message || "Email sending failed");
+  setStatus("Message failed. Please try again.");
+} finally {
+  setSending(false);
+}
+  };
+
   return (
     <section className="contact" id="contact">
-
-      {/* Contact Heading */}
       <div className="contact-heading">
         <p>GET IN TOUCH</p>
-
         <h2>Let's Connect</h2>
-
         <span>
           I am open to discussing job opportunities, projects and
           professional collaborations.
         </span>
       </div>
 
-
-      {/* Contact Container */}
       <div className="contact-container">
-
-        {/* Contact Information */}
         <div className="contact-info">
-
-          <p className="contact-label">
-            CONTACT ME
-          </p>
-
+          <p className="contact-label">CONTACT ME</p>
           <h3>Let's work together</h3>
 
           <p className="contact-description">
@@ -40,40 +60,25 @@ function Contact() {
             a project, feel free to get in touch with me.
           </p>
 
-
-          {/* Email */}
           <div className="contact-item">
-
-            <div className="contact-icon">
-              @
-            </div>
-
+            <div className="contact-icon">@</div>
             <div>
               <a href="mailto:mayurinavale15@gmail.com">
                 mayurinavale15@gmail.com
               </a>
             </div>
-
           </div>
 
-
-          {/* Location */}
           <div className="contact-item">
-
             <div className="contact-icon">
-                <FaMapMarkerAlt />
+              <FaMapMarkerAlt />
             </div>
-
             <div>
               <p>Pune, Maharashtra</p>
             </div>
-
           </div>
 
-
-          {/* Social Icons */}
           <div className="social-links">
-
             <a
               href="https://www.linkedin.com/in/mayuri-navale-148927314/"
               target="_blank"
@@ -91,62 +96,56 @@ function Contact() {
             >
               <FaGithub />
             </a>
-
           </div>
-
         </div>
 
-
-        {/* Contact Form */}
         <div className="contact-form">
-
           <h3>Send Me a Message</h3>
 
-          <form>
-
+          <form ref={form} onSubmit={sendEmail}>
             <div className="form-group">
-              <label>Your Name</label>
-
+              <label htmlFor="user_name">Your Name</label>
               <input
+                id="user_name"
                 type="text"
+                name="user_name"
                 placeholder="Enter your name"
+                required
               />
             </div>
 
-
             <div className="form-group">
-              <label>Your Email</label>
-
+              <label htmlFor="user_email">Your Email</label>
               <input
+                id="user_email"
                 type="email"
+                name="user_email"
                 placeholder="Enter your email"
+                required
               />
             </div>
 
-
             <div className="form-group">
-              <label>Your Message</label>
-
+              <label htmlFor="message">Your Message</label>
               <textarea
+                id="message"
+                name="message"
                 rows="6"
                 placeholder="Write your message..."
-              ></textarea>
+                required
+              />
             </div>
 
-
-            <button type="submit">
-              Send Message ↗
+            <button type="submit" disabled={sending}>
+              {sending ? "Sending..." : "Send Message ↗"}
             </button>
 
+            {status && <p role="status">{status}</p>}
           </form>
-
         </div>
-
       </div>
-
     </section>
   );
 }
 
 export default Contact;
-

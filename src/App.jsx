@@ -8,7 +8,7 @@ import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
-
+import Education from "./components/Education/Education";
 import "./App.css";
 
 function App() {
@@ -45,6 +45,11 @@ function App() {
         <section id="home">
           <Hero />
         </section>
+
+        <section>
+          <Education/>
+        </section>
+
 
         <section id="about">
           <About />

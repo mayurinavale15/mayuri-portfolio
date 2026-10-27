@@ -1,5 +1,6 @@
 import "./Hero.css";
 import heroImage from "../../assets/hero.png";
+import { TypeAnimation } from "react-type-animation";
 
 function Hero() {
   return (
@@ -18,7 +19,21 @@ function Hero() {
             Hi, I'm <span>Mayuri Navale</span> 
           </h1>
 
-          <h2>MERN Stack Developer</h2>
+        <h2>
+  <TypeAnimation
+    sequence={[
+      "FULL Stack Developer",
+      2000,
+      "MERN Stack Developer",
+      2000,
+      "FLUTTER Developer",
+      2000,
+    ]}
+    wrapper="span"
+    speed={50}
+    repeat={Infinity}
+  />
+</h2>
 
           <p className="hero-description">
             I build responsive and modern web applications using
